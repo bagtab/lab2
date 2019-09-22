@@ -10,6 +10,7 @@ public class Uppg4 {
 			data[i] = sc.nextInt();
 		}
 		sc.close();
+		//counts inversions, then sorts and prints swaps to validate that they are the same
 		InsertionSort.inversionCount(data);
 		InsertionSort.sort(data);
 	}

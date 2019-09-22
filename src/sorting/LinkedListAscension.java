@@ -3,12 +3,15 @@ package sorting;
 public class LinkedListAscension {
 	public static void main(String[] args) {
 		LinkedListAscension list = new LinkedListAscension();
+		//adds a head, one before the head and one between
 		list.enqueue(17);
 		list.enqueue(3);
 		list.enqueue(10);
+		//tests with negative numbers
 		list.enqueue(-10);
 		list.enqueue(-12);
 		list.enqueue(-11);
+		//tests with numbers bigger than 127, limit for Integer comparissons
 		list.enqueue(170);
 		list.enqueue(173);
 		list.enqueue(172);
@@ -19,14 +22,14 @@ public class LinkedListAscension {
 			head = new Node(i);
 			head.next = head;
 			head.prev = head;
-		} else if (head.val < i) {
+		} else if (head.val > i) {
 			addBefore(head, new Node(i));
 			head = head.prev;
 		} else {
 			Node tmp = head;
 			 do {
 				tmp = tmp.next;
-			}while(tmp != head && tmp.val > i);
+			}while(tmp != head && tmp.val < i);
 			addBefore(tmp, new Node(i));
 		}	
 		print();

@@ -1,12 +1,14 @@
 package sorting;
 
 public class InsertionSort{
+	//made to sort the array and count the swaps
 	public static void sort(Comparable[] data) {
 		int len = data.length;
 		int nrSwaps = 0;
 		print(data);
 		for(int i = 0; i < len; i++) {
 			for(int j = i;j > 0 && data[j].compareTo(data[j-1]) ==-1; j-- ) {
+				//while data[j]<data[j-1], swap(j,j-i)
 				swap(data, j, j-1);
 				nrSwaps++;
 				print(data);
@@ -33,6 +35,7 @@ public class InsertionSort{
 		String textInversions = "";
 		for(int i = 0; i < data.length; i++) {
 			for(int j = i; j < data.length; j++) {
+				//if data[j] < data[i], add an inversion the inversion string
 				if(data[j].compareTo(data[i]) == -1) {
 					inversions++;
 					textInversions+= "  [[" + i + "," + data[i] + "],[" + j + "," + data[j] + "]]  ";
